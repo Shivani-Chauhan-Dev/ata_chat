@@ -57,7 +57,7 @@ async def handle_connection(websocket):
                         await websocket.send(json.dumps({"error": "Incomplete chat message"}))
                         continue
 
-                    # ✅ Correct athlete_id and coach_id assignment
+                    
                     if sender["role"] == "athlete" and receiver["role"] == "coach":
                         athlete_id = sender["id"]
                         coach_id = receiver["id"]
@@ -98,7 +98,7 @@ async def handle_connection(websocket):
                         "timestamp": timestamp
                     }
 
-                    # ✅ Broadcast to recipient
+                    
                     recipient_ws = connected_clients.get(receiver["id"])
                     if recipient_ws:
                         await recipient_ws.send(json.dumps(response_payload))
