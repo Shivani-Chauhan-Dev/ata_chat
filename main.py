@@ -70,7 +70,7 @@ async def handle_connection(websocket):
 
                     try:
                         res = requests.post(
-                            "https://sports-backend-oxiz.onrender.com/chat",
+                            "https://sports-backend-0mgj.onrender.com/chat",
                             json={
                                 "athlete_id": athlete_id,
                                 "coach_id": coach_id,
@@ -121,7 +121,7 @@ async def handle_connection(websocket):
                 elif msg_type == "get_chat_list":
                     coach_id = msg_data.get("id")
                     try:
-                        res = requests.get(f"https://sports-backend-oxiz.onrender.com/chat_list/{coach_id}")
+                        res = requests.get(f"https://sports-backend-0mgj.onrender.com/chat_list/{coach_id}")
                         if res.status_code == 200:
                             athletes = res.json().get("athletes", [])
                             await websocket.send(json.dumps({
